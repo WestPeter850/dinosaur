@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Dinosaur.io</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Babel for in-browser compilation -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        body { margin: 0; padding: 0; overflow: hidden; background-color: #000; font-family: 'Inter', sans-serif; }
+        canvas { display: block; touch-action: none; }
+        /* Hide scrollbars */
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+    <!-- Define Import Map to link files without extensions -->
+    <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@18.2.0",
+    "react/jsx-runtime": "https://esm.sh/react@18.2.0/jsx-runtime",
+    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+    "react-dom": "https://esm.sh/react-dom@18.2.0",
+    "@google/genai": "https://esm.sh/@google/genai@0.1.0",
+    "./App": "./App.tsx",
+    "./types": "./types.ts",
+    "./constants": "./constants.ts",
+    "./components/GameCanvas": "./components/GameCanvas.tsx",
+    "./components/HUD": "./components/HUD.tsx",
+    "./components/Menu": "./components/Menu.tsx",
+    "./components/EvolutionSelector": "./components/EvolutionSelector.tsx",
+    "./components/HamburgerMenu": "./components/HamburgerMenu.tsx",
+    "./components/MusicPlayer": "./components/MusicPlayer.tsx",
+    "./services/geminiService": "./services/geminiService.ts",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/"
+  },
+  "scopes": {
+    "./components/": {
+      "../types": "./types.ts",
+      "../constants": "./constants.ts"
+    }
+  }
+}
+</script>
+    <!-- Polyfill for process.env -->
+    <script>
+      window.process = { env: { API_KEY: '' } };
+    </script>
+</head>
+<body>
+    <div id="root"></div>
+    
+    <!-- Entry Point -->
+    <script type="text/babel" data-type="module" src="./index.tsx"></script>
+</body>
+</html>
